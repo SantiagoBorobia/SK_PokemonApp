@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Grid.css">
+    <link rel="stylesheet" type="text/css" href="style-index.css">
+
+	<title>Soluciones Kuali Front-end Challenge</title>
+</head>
+<body>
+    <header>
+        <div class="row">
+            <h1>Soluciones Kuali: Frontend Challenge</h1>
+        </div>
+    </header>
+    
+    <div class="row lista">
+        <table id="PokemonTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    
+                </tr>
+            </thead>
+            <tbody id="PokemonList">
+                <tr id="row1" class="table-row">
+                    
+                </tr>
+                <tr id="row2" class="table-row">
+                    
+                </tr>
+                <tr id="row3" class="table-row">
+                    
+                </tr>
+                <tr id="row4" class="table-row">
+                    
+                </tr>
+                <tr id="row5" class="table-row">
+                    
+                </tr>
+                <tr id="row6" class="table-row">
+                    
+                </tr>
+                <tr id="row7" class="table-row">
+                    
+                </tr>
+                <tr id="row8" class="table-row">
+                    
+                </tr>
+                <tr id="row9" class="table-row">
+                    
+                </tr>
+                <tr id="row10" class="table-row">
+                    
+                </tr>
+                <tr id="row11" class="table-row">
+                    
+                </tr>
+                <tr id="row12" class="table-row">
+                    
+                </tr>
+                <tr id="row13" class="table-row">
+                    
+                </tr>
+                <tr id="row14" class="table-row">
+                    
+                </tr>
+                <tr id="row15" class="table-row">
+                    
+                </tr>
+                <tr id="row16" class="table-row">
+                    
+                </tr>
+                <tr id="row17" class="table-row">
+                    
+                </tr>
+                <tr id="row18" class="table-row">
+                    
+                </tr>
+                <tr id="row19" class="table-row">
+                    
+                </tr>
+                <tr id="row20" class="table-row">
+                    
+                </tr>
+                <tr id="row21" class="table-row">
+                    
+                </tr>
+                <tr id="row22" class="table-row">
+                    
+                </tr>
+                <tr id="row23" class="table-row">
+                    
+                </tr>
+                <tr id="row24" class="table-row">
+                    
+                </tr>
+                <tr id="row25" class="table-row">
+                    
+                </tr>
+                
+                
+            </tbody>
+            
+            <caption style="caption-side:bottom">
+                <p id="Prev" onclick="paginadorLeft()"><ion-icon name="caret-back-outline"></ion-icon>Prev</p>
+                <p id="Next" onclick="paginadorRight()">Next<ion-icon name="caret-forward-outline"></ion-icon></p>
+            </caption>
+            <caption style="caption-side:bottom">
+                <p id="pagina">Pagina 1/36</p>
+            </caption>
+                
+            
+        </table>
+    </div>
+    
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+</body>
+
+    
+<!--
+    JavaScript functionality
+-->    
+<script>
+    
+//*****************************
+//    LLENADO DE TABLA
+//*****************************
+    var pokeIds = 1; //id del pokemon que aparece hasta arriba de la tabla del paginador
+    var pag = 0;
+    
+	function fillTable(){
+        var cons = true;
+        var poke = pokeIds;
+        var row = 1;
+    
+        while(cons && row<=25){
+            cons = consultPokemon(poke, row);
+            //console.log("pokemon " + poke + " value "+cons.toString());
+            row = row + 1;
+            poke = poke+1;
+        }
+        pokeIds=poke;
+        //alert("PokeId:"+pokeIds);
+	}
+    
+    function consultPokemon(id, row){
+        var res = true;
+        fetch("https://pokeapi.co/api/v2/pokemon/"+id)
+            .then(function(response){
+                if(response.ok){
+                    response.json()
+                    .then(function(pokemon){
+                        createPokemon(pokemon, row)
+                    })
+                }
+                else{
+                    console.log("No more pokemons");
+                    res =  false;
+                }
+            })
+            .catch((error) => {
+                    console.log(error);
+                    res =  false;
+                })
+        return res;
+    }
+    
+    function createPokemon(pokemon, row){
+        var strHTML = "<td>"+pokemon.id+"</td>"+
+                        "<td>"+pokemon.name+"</td>";
+        var strRow = "row"+row;
+        document.getElementById(strRow).innerHTML = strHTML;
+    }
+    
+    fillTable();
+    
+//*****************************
+//   FUNCIONALIDAD PAGINADOR
+//*****************************
+    function paginadorLeft(){
+        pag--;
+        if(pag==0){
+            document.getElementById("Prev").style.display = "none";
+            document.getElementById("Next").style.paddingLeft = "0";
+        }
+        
+        document.getElementById("Next").style.display = "inline-block";
+        document.getElementById("pagina").innerHTML= "Pagina "+(pag+1)+"/36";
+        pokeIds=pag*25+1;
+        fillTable();
+        
+        
+    }
+    
+    function paginadorRight(){
+        pag++;
+        document.getElementById("Prev").style.display = "inline-block";
+        document.getElementById("pagina").innerHTML= "Pagina "+(pag+1)+"/36";
+        fillTable();
+        if(pag==35){
+            document.getElementById("Next").style.display = "none";
+            var i;
+            for(i=19; i<26; i++){
+                document.getElementById("row"+i).innerHTML="";
+            }
+        }
+        if(pag==1){
+            document.getElementById("Next").style.paddingLeft="25%";
+        }
+        
+        
+    }
+
+</script>
+
+    
+</html>
