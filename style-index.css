@@ -60,20 +60,29 @@ th {
     font-size: 100%;
     text-transform: uppercase;
     padding: 5px 0;
+    width: 20%
+}
 
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	th { 
+        width: 100px;
+	}
+    
 }
 
 td {
     border: 1px solid #ffcb05;
     height: auto;
-    width:200px;
     padding: 5px;
-    vertical-align: top;
-    text-align: center;
+    vertical-align: center;
+    text-align: center; 
 }
 
 .table-row:hover{
     background-color: #4490d8;
+    cursor: pointer;
 }
 
 caption {

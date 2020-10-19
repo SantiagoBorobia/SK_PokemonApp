@@ -19,85 +19,86 @@
         <table id="PokemonTable">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
+                    <th>Imágen</th>
+                    <th>Número</th>
+                    <th>Nombre</th>
                     
                 </tr>
             </thead>
             <tbody id="PokemonList">
-                <tr id="row1" class="table-row">
+                <tr id="row1" class="table-row" onclick="selectPokemon(1)">
                     
                 </tr>
-                <tr id="row2" class="table-row">
+                <tr id="row2" class="table-row" onclick="selectPokemon(2)">
                     
                 </tr>
-                <tr id="row3" class="table-row">
+                <tr id="row3" class="table-row" onclick="selectPokemon(3)">
                     
                 </tr>
-                <tr id="row4" class="table-row">
+                <tr id="row4" class="table-row" onclick="selectPokemon(4)">
                     
                 </tr>
-                <tr id="row5" class="table-row">
+                <tr id="row5" class="table-row" onclick="selectPokemon(5)">
                     
                 </tr>
-                <tr id="row6" class="table-row">
+                <tr id="row6" class="table-row" onclick="selectPokemon(6)">
                     
                 </tr>
-                <tr id="row7" class="table-row">
+                <tr id="row7" class="table-row" onclick="selectPokemon(7)">
                     
                 </tr>
-                <tr id="row8" class="table-row">
+                <tr id="row8" class="table-row" onclick="selectPokemon(8)">
                     
                 </tr>
-                <tr id="row9" class="table-row">
+                <tr id="row9" class="table-row" onclick="selectPokemon(9)">
                     
                 </tr>
-                <tr id="row10" class="table-row">
+                <tr id="row10" class="table-row" onclick="selectPokemon(10)">
                     
                 </tr>
-                <tr id="row11" class="table-row">
+                <tr id="row11" class="table-row" onclick="selectPokemon(11)">
                     
                 </tr>
-                <tr id="row12" class="table-row">
+                <tr id="row12" class="table-row" onclick="selectPokemon(12)">
                     
                 </tr>
-                <tr id="row13" class="table-row">
+                <tr id="row13" class="table-row" onclick="selectPokemon(13)">
                     
                 </tr>
-                <tr id="row14" class="table-row">
+                <tr id="row14" class="table-row" onclick="selectPokemon(14)">
                     
                 </tr>
-                <tr id="row15" class="table-row">
+                <tr id="row15" class="table-row" onclick="selectPokemon(15)">
                     
                 </tr>
-                <tr id="row16" class="table-row">
+                <tr id="row16" class="table-row" onclick="selectPokemon(16)">
                     
                 </tr>
-                <tr id="row17" class="table-row">
+                <tr id="row17" class="table-row" onclick="selectPokemon(17)">
                     
                 </tr>
-                <tr id="row18" class="table-row">
+                <tr id="row18" class="table-row" onclick="selectPokemon(18)">
                     
                 </tr>
-                <tr id="row19" class="table-row">
+                <tr id="row19" class="table-row" onclick="selectPokemon(19)">
                     
                 </tr>
-                <tr id="row20" class="table-row">
+                <tr id="row20" class="table-row" onclick="selectPokemon(20)">
                     
                 </tr>
-                <tr id="row21" class="table-row">
+                <tr id="row21" class="table-row" onclick="selectPokemon(21)">
                     
                 </tr>
-                <tr id="row22" class="table-row">
+                <tr id="row22" class="table-row" onclick="selectPokemon(22)">
                     
                 </tr>
-                <tr id="row23" class="table-row">
+                <tr id="row23" class="table-row" onclick="selectPokemon(23)">
                     
                 </tr>
-                <tr id="row24" class="table-row">
+                <tr id="row24" class="table-row" onclick="selectPokemon(24)">
                     
                 </tr>
-                <tr id="row25" class="table-row">
+                <tr id="row25" class="table-row" onclick="selectPokemon(25)">
                     
                 </tr>
                 
@@ -136,9 +137,9 @@
         var poke = pokeIds;
         var row = 1;
     
-        while(cons && row<=25){
+        while(cons && row<=25 && poke<=893){
             cons = consultPokemon(poke, row);
-            //console.log("pokemon " + poke + " value "+cons.toString());
+            console.log("pokemon " + poke + " value "+cons.toString());
             row = row + 1;
             poke = poke+1;
         }
@@ -162,14 +163,15 @@
                 }
             })
             .catch((error) => {
-                    console.log(error);
+                    //console.log(error);
                     res =  false;
                 })
         return res;
     }
     
     function createPokemon(pokemon, row){
-        var strHTML = "<td>"+pokemon.id+"</td>"+
+        var strHTML =   "<td><img src='"+pokemon.sprites.front_default+"' alt= 'Sin Foto'>"+
+                        "<td id='idCell"+row+"'>"+pokemon.id+"</td>"+
                         "<td>"+pokemon.name+"</td>";
         var strRow = "row"+row;
         document.getElementById(strRow).innerHTML = strHTML;
@@ -208,10 +210,17 @@
             }
         }
         if(pag==1){
-            document.getElementById("Next").style.paddingLeft="25%";
+            document.getElementById("Next").style.marginLeft="25%";
         }
         
         
+    }
+    
+    //Obtiene el id del pokemon seleccionado y lo guarda en una "session"
+    function selectPokemon(row){
+        var id = document.getElementById("idCell"+row).innerHTML;
+        sessionStorage.setItem("pokeId", id);
+        window.location.href = "pokemonInfo.html";
     }
 
 </script>

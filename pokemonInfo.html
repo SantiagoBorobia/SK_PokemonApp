@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Grid.css">
+    <!--<link rel="stylesheet" type="text/css" href="style-pokemonInfo.css">
+    -->
+	<title>Soluciones Kuali Front-end Challenge</title>
+</head>
+<body onload="getPokemon()">
+    <header>
+        <div class="row">
+            <h1>Soluciones Kuali: Frontend Challenge</h1>
+        </div>
+        <div class="row">
+            <p id="pokeId"></p>
+        </div>
+    </header>
+</body>
+    
+<script>
+    //Obtiene el id del pokemon seleccionado desde la session
+    function getPokemon(){
+        var id = sessionStorage.getItem("pokeId");
+        
+        fetch("https://pokeapi.co/api/v2/pokemon/"+id.toString())
+        .then(function(response){
+            response.json()
+            .then(function(pokemon){
+                getPokemonData(pokemon);
+            })
+        })
+        document.getElementById("pokeId").innerHTML = "pokemon numero:"+id;
+        
+    }
+    
+    function getPokemonData(pokemon){
+        var name;
+        var abilities;
+        var baseExperience;
+        var height;
+        var image;
+        var stats;
+        var types;
+        var weight;
+        name = pokemon.name;
+        abilities = pokemon.abilities;
+        baseExperience = pokemon.base_experience;
+        height = pokemon.height;
+        image = pokemon.sprites.other.dream_world.front_default;
+        stats = pokemon.stats;
+        types = pokemon.types;
+        weight = pokemon.weight;
+        
+        
+        // Manejo de objetos JSON con mas de 1 dato console.log(stats[0].stat.name);
+        // Length de objeto JSON console.log(Object.keys(abilities).length);
+        //Para height (en metros) y weight (en kg) dividir entre 10.
+        
+        /*Para español:
+        abilities = names[5]
+        stats = todos son iguales => traducir hard coded
+        types = names[4]
+        */
+    }
+    
+    function getAbility(ability){
+        console.log(abilities[0].ability.url)
+        fetch(abilities[0].ability.url)
+        .then(function(response){
+            response.json()
+            .then(function(ability){
+                console.log(ability.names[5].name)
+            })
+        })
+        
+    }
+    
+</script>
+    
+</html>
