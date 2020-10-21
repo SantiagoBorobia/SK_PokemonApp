@@ -9,113 +9,377 @@
 	<title>Soluciones Kuali Front-end Challenge</title>
 </head>
 <body>
-    <header>
-        <div class="row">
-            <h1>Soluciones Kuali: Frontend Challenge</h1>
-        </div>
-    </header>
+    <div id="wrapper">
+        <header>
+            <div class="row heading">
+                <img class="logo-big" src="Images/PokemonLogo.png">
+            </div>
+            <div class="row intro">
+                <div class="introText">
+                    <h2>SK Frontend Challenge</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euis- mod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea com- modo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                </div>
+                <div class="introImage">
+                    <img src="Images/Pokeball.png">
+                </div>
+            </div>
+        </header>
     
-    <div class="row lista">
-        <table id="PokemonTable">
-            <thead>
-                <tr>
-                    <th>Imágen</th>
-                    <th>Número</th>
-                    <th>Nombre</th>
-                    
-                </tr>
-            </thead>
-            <tbody id="PokemonList">
-                <tr id="row1" class="table-row" onclick="selectPokemon(1)">
-                    
-                </tr>
-                <tr id="row2" class="table-row" onclick="selectPokemon(2)">
-                    
-                </tr>
-                <tr id="row3" class="table-row" onclick="selectPokemon(3)">
-                    
-                </tr>
-                <tr id="row4" class="table-row" onclick="selectPokemon(4)">
-                    
-                </tr>
-                <tr id="row5" class="table-row" onclick="selectPokemon(5)">
-                    
-                </tr>
-                <tr id="row6" class="table-row" onclick="selectPokemon(6)">
-                    
-                </tr>
-                <tr id="row7" class="table-row" onclick="selectPokemon(7)">
-                    
-                </tr>
-                <tr id="row8" class="table-row" onclick="selectPokemon(8)">
-                    
-                </tr>
-                <tr id="row9" class="table-row" onclick="selectPokemon(9)">
-                    
-                </tr>
-                <tr id="row10" class="table-row" onclick="selectPokemon(10)">
-                    
-                </tr>
-                <tr id="row11" class="table-row" onclick="selectPokemon(11)">
-                    
-                </tr>
-                <tr id="row12" class="table-row" onclick="selectPokemon(12)">
-                    
-                </tr>
-                <tr id="row13" class="table-row" onclick="selectPokemon(13)">
-                    
-                </tr>
-                <tr id="row14" class="table-row" onclick="selectPokemon(14)">
-                    
-                </tr>
-                <tr id="row15" class="table-row" onclick="selectPokemon(15)">
-                    
-                </tr>
-                <tr id="row16" class="table-row" onclick="selectPokemon(16)">
-                    
-                </tr>
-                <tr id="row17" class="table-row" onclick="selectPokemon(17)">
-                    
-                </tr>
-                <tr id="row18" class="table-row" onclick="selectPokemon(18)">
-                    
-                </tr>
-                <tr id="row19" class="table-row" onclick="selectPokemon(19)">
-                    
-                </tr>
-                <tr id="row20" class="table-row" onclick="selectPokemon(20)">
-                    
-                </tr>
-                <tr id="row21" class="table-row" onclick="selectPokemon(21)">
-                    
-                </tr>
-                <tr id="row22" class="table-row" onclick="selectPokemon(22)">
-                    
-                </tr>
-                <tr id="row23" class="table-row" onclick="selectPokemon(23)">
-                    
-                </tr>
-                <tr id="row24" class="table-row" onclick="selectPokemon(24)">
-                    
-                </tr>
-                <tr id="row25" class="table-row" onclick="selectPokemon(25)">
-                    
-                </tr>
-                
-                
-            </tbody>
+        <section class="lista">
+            <div class="row">
+                <div class="buscador">
+                    <ion-icon name="search-outline"></ion-icon><input id="finder" placeholder="Buscar...">
+                </div>
+            </div>
             
-            <caption style="caption-side:bottom">
-                <p id="Prev" onclick="paginadorLeft()"><ion-icon name="caret-back-outline"></ion-icon>Prev</p>
-                <p id="Next" onclick="paginadorRight()">Next<ion-icon name="caret-forward-outline"></ion-icon></p>
-            </caption>
-            <caption style="caption-side:bottom">
-                <p id="pagina">Pagina 1/36</p>
-            </caption>
+            <div class="row">
+                <div class="pokemonBox" id="poke1" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg1" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName1" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId1" class="pokeNumber">No. 005</p>
+                    </div>
+                </div>
                 
+                <div class="pokemonBox" id="poke2" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg2" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName2" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId2" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke3" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg3" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName3" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId3" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke4" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg4" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName4" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId4" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+            </div>
             
-        </table>
+            <div class="row">
+                <div class="pokemonBox" id="poke5" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg5" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName5" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId5" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke6" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg6" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName6" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId6" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke7" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg7" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName7" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId7" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke8" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg8" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName8" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId8" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="pokemonBox" id="poke9" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg9" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName9" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId9" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke10" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg10" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName10" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId10" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke11" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg11" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName11" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId11" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke12" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg12" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName12" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId12" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="pokemonBox" id="poke13" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg13" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName13" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId13" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke14" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg14" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName14" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId14" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke15" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg15" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName15" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId15" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke16" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg16" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName16" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId16" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="row">
+                <div class="pokemonBox" id="poke17" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg17" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName17" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId17" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke18" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg18" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName18" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId18" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke19" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg19" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName19" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId19" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke20" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg20" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName20" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId20" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="pokemonBox" id="poke21" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg21" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName21" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId21" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke22" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg22" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName22" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId22" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke23" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg23" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName23" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId23" class="pokeNumber">No. 025</p>
+                    </div>
+                </div>
+                
+                <div class="pokemonBox" id="poke24" onclick="selectPokemon(1)">
+                    <div class="row">
+                        <img id="pokeImg24" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
+                    </div>
+                    <div class="row">
+                        <p id="pokeName24" class="pokeName">PIKACHU</p>
+                    </div>
+                    <div class="row">
+                        <p id="pokeId24" class="pokeNumber">No.025</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <ul class="paginador">
+                    <li id="Prev"><ion-icon name="chevron-back-outline"></ion-icon></li>
+                    <li id="p1">1</li>
+                    <li id="p2">2</li>
+                    <li id="p3">3</li>
+                    <li id="p4">4</li>
+                    <li id="p5">5</li>
+                    <li id="p6">6</li>
+                    <li id="p7">7</li>
+                    <li id="p8">8</li>
+                    <li id="p9">9</li>
+                    <li id="p10">10</li>
+                    <li id="Next"><ion-icon name="chevron-forward-outline"></ion-icon></li>
+                </ul>
+            </div>
+            <div class="row">
+                <p id="actPage">Página 1/36 </p>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="row">
+                <img src="Images/Pokeball-Icon.png">
+            </div>
+            <div class="row">
+                <p>Santiago Borobia Rodríguez</p>
+            </div>
+            <div class="row">
+                <p>santiagoborobia1@hotmail.com</p> 
+            </div>
+        </footer>
+    
     </div>
+    
+            
+            <!--
+                <caption style="caption-side:bottom">
+                    <p id="Prev" onclick="paginadorLeft()"><ion-icon name="caret-back-outline"></ion-icon>Prev</p>
+                    <p id="Next" onclick="paginadorRight()">Next<ion-icon name="caret-forward-outline"></ion-icon></p>
+                </caption>
+                <caption style="caption-side:bottom">
+                    <p id="pagina">Pagina 1/36</p>
+                </caption>
+            </table>
+-->
+        
+    
     
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 </body>
@@ -129,22 +393,20 @@
 //*****************************
 //    LLENADO DE TABLA
 //*****************************
-    var pokeIds = 1; //id del pokemon que aparece hasta arriba de la tabla del paginador
-    var pag = 0;
+    var pokeIds = 1; //id del pokemon que aparece primero en la lista.
+    var pag = 0; // pagina actual del paginador
+    var cons = true;
     
 	function fillTable(){
-        var cons = true;
         var poke = pokeIds;
         var row = 1;
     
-        while(cons && row<=25 && poke<=893){
+        while(cons && row<=24){
             cons = consultPokemon(poke, row);
-            console.log("pokemon " + poke + " value "+cons.toString());
             row = row + 1;
             poke = poke+1;
         }
         pokeIds=poke;
-        //alert("PokeId:"+pokeIds);
 	}
     
     function consultPokemon(id, row){
@@ -170,12 +432,30 @@
     }
     
     function createPokemon(pokemon, row){
-        var strHTML =   "<td><img src='"+pokemon.sprites.front_default+"' alt= 'Sin Foto'>"+
-                        "<td id='idCell"+row+"'>"+pokemon.id+"</td>"+
-                        "<td>"+pokemon.name+"</td>";
-        var strRow = "row"+row;
+        var pokemonNumber = pokemon.id;
+        var pokemonId;
+        if(Math.trunc(pokemonNumber/100)==0){
+            if(Math.trunc(pokemonNumber/10)==0){
+                pokemonId="00"+pokemonNumber;
+            }
+            else{
+                pokemonId="0"+pokemonNumber;
+            }
+        }
+        var strHTML =   "<div class='row'>"+
+                            "<img id='pokeImg"+row+"' src='"+pokemon.sprites.front_default+"'>"+
+                        "</div>"+
+                        "<div class='row'>"+
+                            "<p id='pokeName"+row+"' class='pokeName'>"+pokemon.name+"</p>"+
+                        "</div>"+
+                        "<div class='row'>"+
+                            "<p id='pokeId"+row+"' class='pokeNumber'>No. "+pokemonId+"</p>"+
+                        "</div>";
+                        
+        var strRow = "poke"+row;
         document.getElementById(strRow).innerHTML = strHTML;
     }
+    
     
     fillTable();
     
@@ -218,9 +498,10 @@
     
     //Obtiene el id del pokemon seleccionado y lo guarda en una "session"
     function selectPokemon(row){
-        var id = document.getElementById("idCell"+row).innerHTML;
-        sessionStorage.setItem("pokeId", id);
-        window.location.href = "pokemonInfo.html";
+        var id = document.getElementById("pokeId"+row).innerHTML;
+        alert(parseInt(id.substr(4)));
+        //sessionStorage.setItem("pokeId", id);
+        //window.location.href = "pokemonInfo.html";
     }
 
 </script>

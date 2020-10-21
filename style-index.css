@@ -10,7 +10,6 @@
 
 html,
 body{
-    background-color: #2a75bb;
     color: #fff;
     font-family: 'Lato', 'Arial', sans-serif;
     font-size: 20px;
@@ -19,96 +18,174 @@ body{
     overflow-x: hidden;
 }
 
+#wrapper {
+    margin-left:auto;
+    margin-right:auto;
+}
+
 /* ---------------------------------------------------------------------*/
-/* HEADINGS */
+/* HEADER */
 /* ---------------------------------------------------------------------*/
 
-h1{
-    margin-top: 1%;
-    font-weight: 300;
-    text-transform: uppercase;
-    word-spacing: 4px;
-    text-align: center;
+/* HEADING */
+header{
+    background: linear-gradient(0deg, #fff 35%, #7da09a 35%);
+    height: 800px;
 }
-h1:after{
+
+.logo-big{
+    width: 30%;
     display: block;
-    height: 2px;
-    background-color: #ffcb05;
-    content: " ";
-    width: 100px;
-    margin: 0 auto;
-    margin-top: 30px;
+    margin: auto;
+    padding-top: 40px;
+}
+
+/* INTRODUCTION TEXT */
+.introText{
+    position: absolute;
+    top: 460px;
+    left: 8%;
+    width: 44%;
+}
+.introText h2{
+    font-family: 'Silom', 'Lato';
+    font-size: 190%;
+    text-transform: uppercase;
+}
+.introText p{
+    color: #000;
+    padding-top: 30px;
+    text-align: left;
+    font-size: 80%;
+}
+
+/* POKEBALL IMG */
+.introImage{
+    position: absolute;
+    left: 60%;
+    top: 250px;
+}
+.introImage img{
+    width: 85%;
+}
+
+
+/* ---------------------------------------------------------------------*/
+/* LISTA POKEMON */
+/* ---------------------------------------------------------------------*/
+
+.lista{
+    margin-top: 100px;
+}
+/* FINDER */
+.buscador{
+    margin-left: 4%;
+    color: #7da09a;
+}
+.buscador ion-icon{
+    font-size: 150%;
+}
+
+#finder{
+    margin-left: 0.5%;
+    border: 1px solid #7da09a;
+    border-radius: 200px;
+    height: 40px;
+    width: 20%;
+    text-indent: 10px;
+    font-size: 90%;
+}
+
+/* LIST ELEMENT */
+
+.pokemonBox{
+    width: 20%;
+    float: left;
+    height: 350px;
+    margin-left: 4%;
+    margin-bottom: 10px;
+}
+.pokemonBox:hover{
+    cursor: pointer;
+    border: solid 1px #7da09a;
     
 }
-
-
-/* ---------------------------------------------------------------------*/
-/* TABLA */
-/* ---------------------------------------------------------------------*/
-table {
+.pokemonBox img{
+    width: 300px;
+    height: auto;
+    display: block;
+    margin-bottom: -15px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    border: 1px solid #ffcb05;
-    border-collapse: collapse;
-    font-size: 70%;
 }
-
-th {
-    border: 1px solid #ffcb05;
-    font-size: 100%;
-    text-transform: uppercase;
-    padding: 5px 0;
-    width: 20%
-}
-
-/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
-
-@media only screen and (max-width: 480px) {
-	th { 
-        width: 100px;
-	}
-    
-}
-
-td {
-    border: 1px solid #ffcb05;
-    height: auto;
-    padding: 5px;
-    vertical-align: center;
-    text-align: center; 
-}
-
-.table-row:hover{
-    background-color: #4490d8;
-    cursor: pointer;
-}
-
-caption {
-    font-size: 100%;
-    font-style: italic;
+.pokeName{
+    text-align: center;
+    font-family: 'Silom';
+    color: #7da09a;
+    border-top: solid 1px #7da09a;
     padding-top: 10px;
+    text-transform: uppercase;
     
 }
-
-#Prev{
-    display: none;
-    vertical-align: top;
-    text-decoration: underline;
+.pokeNumber{
+    text-align: center;
+    font-family: 'Lato';
+    color: #000;
+    font-size: 80%;
+    padding-top: 5px;
 }
-#Prev:hover,
-#Next:hover{
+
+
+/* PAGINADOR */
+
+.paginador{
+    margin: 60px auto 20px auto;
+    text-align: center;
+}
+.paginador li{
+    display: inline-block;
+    color: #7da09a;
+    margin-left: 10px;
+}
+
+.paginador li:hover{
     cursor: pointer;
+    border-bottom: solid 2px #7da09a;
 }
-
+#Prev,
 #Next{
     vertical-align: top;
-    text-decoration: underline;
-    display: inline-block;
 }
 
 
-ion-icon{
-    vertical-align: middle;
+#actPage{
+    color:#7da09a; 
+    text-align: center;
+    margin-bottom: 40px;
 }
+
+
+
+
+
+/* ---------------------------------------------------------------------*/
+/* FOOTER */
+/* ---------------------------------------------------------------------*/
+footer{
+    background-color: #7da09a;
+    height: 300px;
+}
+
+footer img{
+    margin: 60px auto 30px auto;
+    display: block;
+    width: 5%;
+}
+
+footer p{
+    color: #fff;
+    text-align: center;
+    font-size: 90%;
+    margin-bottom: 10px;
+}
+
