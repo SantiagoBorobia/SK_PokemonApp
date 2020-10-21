@@ -30,7 +30,7 @@ body{
 /* HEADING */
 header{
     background: linear-gradient(0deg, #fff 35%, #7da09a 35%);
-    height: 800px;
+    height: 810px;
 }
 
 .logo-big{
@@ -54,9 +54,10 @@ header{
 }
 .introText p{
     color: #000;
-    padding-top: 30px;
+    padding-top: 40px;
     text-align: left;
     font-size: 80%;
+    line-height: 1.6;
 }
 
 /* POKEBALL IMG */
@@ -80,10 +81,12 @@ header{
 /* FINDER */
 .buscador{
     margin-left: 4%;
+    margin-bottom: 20px;
     color: #7da09a;
 }
 .buscador ion-icon{
     font-size: 150%;
+    vertical-align:middle;
 }
 
 #finder{
@@ -101,17 +104,20 @@ header{
 .pokemonBox{
     width: 20%;
     float: left;
-    height: 350px;
+    height: auto;
     margin-left: 4%;
     margin-bottom: 10px;
+    transition: border 0.3s, background 0.3s;
 }
 .pokemonBox:hover{
     cursor: pointer;
     border: solid 1px #7da09a;
+    background-color: rgba(125, 160, 154, 0.2);
+    opacity: 0.8;
     
 }
 .pokemonBox img{
-    width: 300px;
+    width: 90%;
     height: auto;
     display: block;
     margin-bottom: -15px;
@@ -121,6 +127,7 @@ header{
 .pokeName{
     text-align: center;
     font-family: 'Silom';
+    font-size: 100%;
     color: #7da09a;
     border-top: solid 1px #7da09a;
     padding-top: 10px;
@@ -152,7 +159,14 @@ header{
     cursor: pointer;
     border-bottom: solid 2px #7da09a;
 }
-#Prev,
+
+#p1{
+    text-decoration: underline;
+}
+#Prev{
+    vertical-align: top;
+    display: none;
+}
 #Next{
     vertical-align: top;
 }
@@ -179,13 +193,13 @@ footer{
 footer img{
     margin: 60px auto 30px auto;
     display: block;
-    width: 5%;
+    height: 80px;
 }
 
 footer p{
     color: #fff;
     text-align: center;
-    font-size: 90%;
+    font-size: 70%;
     margin-bottom: 10px;
 }
 
