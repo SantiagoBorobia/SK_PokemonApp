@@ -30,7 +30,7 @@ body{
 /* HEADING */
 header{
     background: linear-gradient(0deg, #fff 35%, #7da09a 35%);
-    height: 800px;
+    height: 810px;
 }
 
 .logo-big{
@@ -54,9 +54,10 @@ header{
 }
 .introText p{
     color: #000;
-    padding-top: 30px;
+    padding-top: 40px;
     text-align: left;
     font-size: 80%;
+    line-height: 1.6;
 }
 
 /* POKEBALL IMG */
@@ -70,99 +71,6 @@ header{
 }
 
 
-/* ---------------------------------------------------------------------*/
-/* LISTA POKEMON */
-/* ---------------------------------------------------------------------*/
-
-.lista{
-    margin-top: 100px;
-}
-/* FINDER */
-.buscador{
-    margin-left: 4%;
-    color: #7da09a;
-}
-.buscador ion-icon{
-    font-size: 150%;
-}
-
-#finder{
-    margin-left: 0.5%;
-    border: 1px solid #7da09a;
-    border-radius: 200px;
-    height: 40px;
-    width: 20%;
-    text-indent: 10px;
-    font-size: 90%;
-}
-
-/* LIST ELEMENT */
-
-.pokemonBox{
-    width: 20%;
-    float: left;
-    height: 350px;
-    margin-left: 4%;
-    margin-bottom: 10px;
-}
-.pokemonBox:hover{
-    cursor: pointer;
-    border: solid 1px #7da09a;
-    
-}
-.pokemonBox img{
-    width: 300px;
-    height: auto;
-    display: block;
-    margin-bottom: -15px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.pokeName{
-    text-align: center;
-    font-family: 'Silom';
-    color: #7da09a;
-    border-top: solid 1px #7da09a;
-    padding-top: 10px;
-    text-transform: uppercase;
-    
-}
-.pokeNumber{
-    text-align: center;
-    font-family: 'Lato';
-    color: #000;
-    font-size: 80%;
-    padding-top: 5px;
-}
-
-
-/* PAGINADOR */
-
-.paginador{
-    margin: 60px auto 20px auto;
-    text-align: center;
-}
-.paginador li{
-    display: inline-block;
-    color: #7da09a;
-    margin-left: 10px;
-}
-
-.paginador li:hover{
-    cursor: pointer;
-    border-bottom: solid 2px #7da09a;
-}
-#Prev,
-#Next{
-    vertical-align: top;
-}
-
-
-#actPage{
-    color:#7da09a; 
-    text-align: center;
-    margin-bottom: 40px;
-}
 
 
 
@@ -179,13 +87,12 @@ footer{
 footer img{
     margin: 60px auto 30px auto;
     display: block;
-    width: 5%;
+    height: 80px;
 }
 
 footer p{
     color: #fff;
     text-align: center;
-    font-size: 90%;
+    font-size: 70%;
     margin-bottom: 10px;
 }
-

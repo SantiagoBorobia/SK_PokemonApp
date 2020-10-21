@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Grid.css">
+    <link rel="stylesheet" type="text/css" href="style-index.css">
+
+	<title>Soluciones Kuali Front-end Challenge</title>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <div class="row heading">
+                <img class="logo-big" src="Images/PokemonLogo.png">
+            </div>
+            <div class="row intro">
+                <div class="introText">
+                    <h2>SK Frontend Challenge</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euis- mod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea com- modo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                </div>
+                <div class="introImage">
+                    <img src="Images/Pokeball.png">
+                </div>
+            </div>
+        </header>
+    
+        <section class="lista">
+            <div class="row">
+                <div class="buscador">
+                    <ion-icon name="search-outline"></ion-icon><input id="finder" placeholder="Buscar...">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="pokemonBox" id="poke1" onclick="selectPokemon(1)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke2" onclick="selectPokemon(2)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke3" onclick="selectPokemon(3)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke4" onclick="selectPokemon(4)">
+                    
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="pokemonBox" id="poke5" onclick="selectPokemon(5)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke6" onclick="selectPokemon(6)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke7" onclick="selectPokemon(7)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke8" onclick="selectPokemon(8)">
+                    
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="pokemonBox" id="poke9" onclick="selectPokemon(9)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke10" onclick="selectPokemon(10)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke11" onclick="selectPokemon(11)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke12" onclick="selectPokemon(12)">
+                    
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="pokemonBox" id="poke13" onclick="selectPokemon(13)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke14" onclick="selectPokemon(14)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke15" onclick="selectPokemon(15)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke16" onclick="selectPokemon(16)">
+                    
+                </div>
+            </div>
+                
+            <div class="row">
+                <div class="pokemonBox" id="poke17" onclick="selectPokemon(17)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke18" onclick="selectPokemon(18)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke19" onclick="selectPokemon(19)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke20" onclick="selectPokemon(20)">
+                    
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="pokemonBox" id="poke21" onclick="selectPokemon(21)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke22" onclick="selectPokemon(22)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke23" onclick="selectPokemon(23)">
+                    
+                </div>
+                
+                <div class="pokemonBox" id="poke24" onclick="selectPokemon(24)">
+                    
+                </div>
+            </div>
+            
+            <div class="row">
+                <ul class="paginador">
+                    <li id="Prev"><ion-icon name="chevron-back-outline" onclick="paginadorLeft()"></ion-icon></li>
+                    <li id="p1" onclick="selectPage(1)">1</li>
+                    <li id="p2" onclick="selectPage(2)">2</li>
+                    <li id="p3" onclick="selectPage(3)">3</li>
+                    <li id="p4" onclick="selectPage(4)">4</li>
+                    <li id="p5" onclick="selectPage(5)">5</li>
+                    <li id="p6" onclick="selectPage(6)">6</li>
+                    <li id="p7" onclick="selectPage(7)">7</li>
+                    <li id="p8" onclick="selectPage(8)">8</li>
+                    <li id="p9" onclick="selectPage(9)">9</li>
+                    <li id="p10" onclick="selectPage(10)">10</li>
+                    <li id="Next"><ion-icon name="chevron-forward-outline" onclick="paginadorRight()"></ion-icon></li>
+                </ul>
+            </div>
+            <div class="row">
+                <p id="actPage">Página 1/36 </p>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="row">
+                <img src="Images/Pokeball-Icon.png">
+            </div>
+            <div class="row">
+                <p>Santiago Borobia Rodríguez</p>
+            </div>
+            <div class="row">
+                <p>santiagoborobia1@hotmail.com</p> 
+            </div>
+        </footer>
+    
+    </div>
+        
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+</body>
+
+    
+<!--
+    JavaScript functionality
+-->    
+<script>
+    
+//*****************************
+//    LLENADO DE TABLA
+//*****************************
+    
+    var pokeIds = 1; //id del pokemon que aparece primero en la lista.
+    var cons = true; //variable para ver si logro realizar el fetch a la pokeApi
+    
+	function fillTable(){
+        var poke = pokeIds;
+        var row = 1;
+        cons = true;
+    
+        while(cons && row<=24 && poke<894){
+            consultPokemon(poke, row);
+            row = row + 1;
+            poke = poke+1;
+        }
+        pokeIds=poke;
+	}
+    
+    function consultPokemon(id, row){
+        fetch("https://pokeapi.co/api/v2/pokemon/"+id)
+            .then(function(response){
+                if(response.ok){
+                    response.json()
+                    .then(function(pokemon){
+                        createPokemon(pokemon, row)
+                    })
+                }
+                else{
+                    cons =  false;
+                    //console.log("No more pokemons");
+                    
+                }
+            })
+            .catch((error) => {
+                    //console.log(error);
+                    cons =  false;
+                })
+    }
+    
+    function createPokemon(pokemon, row){
+        var pokemonNumber = pokemon.id;
+        var pokemonId;
+        if(Math.trunc(pokemonNumber/100)==0){
+            if(Math.trunc(pokemonNumber/10)==0){
+                pokemonId="00"+pokemonNumber;
+            }
+            else{
+                pokemonId="0"+pokemonNumber;
+            }
+        }
+        else{
+            pokemonId=pokemonNumber;
+        }
+        var strHTML =   "<div class='row'>"+
+                            "<img id='pokeImg"+row+"' src='"+pokemon.sprites.front_default+"'>"+
+                        "</div>"+
+                        "<div class='row'>"+
+                            "<p id='pokeName"+row+"' class='pokeName'>"+pokemon.name+"</p>"+
+                        "</div>"+
+                        "<div class='row'>"+
+                            "<p id='pokeId"+row+"' class='pokeNumber'>No. "+pokemonId+"</p>"+
+                        "</div>";
+                        
+        var strRow = "poke"+row;
+        document.getElementById(strRow).innerHTML = strHTML;
+    }
+    
+    
+    fillTable(); //Llena la tabla cuando carga la pagina. Pokemones 1-24 (Orden por Id)
+    
+//*****************************
+//   FUNCIONALIDAD PAGINADOR
+//*****************************
+    
+    var pag = 0; // pagina actual del paginador (Hay 38 paginas en total)
+    var pagIndex = 1; // posicion del elemento del paginador que estara subrayado (va de 1-10)
+    var pagSection = 1; //conjunto de 10 numeros de pagina (va de 1 a 4)
+    var sectionChange=false;
+    
+    function paginadorLeft(){
+        pag--;
+        pagIndex--;
+        
+        if(pag==0){
+            document.getElementById("Prev").style.display = "none"; //Esconde flecha hacia atras
+        }
+        
+        if(pag==36){
+            document.getElementById("Next").style.display = "inline-block"; //Muestra flecha hacia adelante
+        }
+        
+        if((pag+1)==10 || (pag+1)==20 || (pag+1)==30){
+            pagSection--;
+            setPagSection();
+            pagIndex=10;
+            sectionChange=true;
+        }
+        
+        if(!sectionChange){
+            document.getElementById("p"+(pagIndex)).style = "text-decoration: underline"; //Subraya pag actual
+            document.getElementById("p"+(pagIndex+1)).style = "text-decoration: none"; //Quita subrayado de pag previamente seleccionada.
+        }
+        else{
+            document.getElementById("p10").style = "text-decoration: underline"; 
+            document.getElementById("p1").style = "text-decoration: none"; 
+            sectionChange=false;
+        }
+        
+        
+        
+        document.getElementById("actPage").innerHTML = "Página "+(pag+1)+"/38"; //Coloca el numero de pagina actual.
+        
+        pokeIds=pag*24+1; //Llena la tabla con los pokemones indicados.
+        fillTable();
+        
+        
+    }
+    
+    function paginadorRight(){
+        
+        pag++;
+        pagIndex++;
+        
+        if(pag==1){
+           document.getElementById("Prev").style.display = "inline-block"; //Muestra flecha hacia atras 
+        }
+        
+        if(pag==37){
+            document.getElementById("Next").style.display = "none"; //Esconde flecha hacia adelante 
+            var i;
+            for(i=5; i<25; i++){
+                document.getElementById("poke"+i).innerHTML="";
+            }
+        }
+        
+        if((pag-1)==9 || (pag-1)==19 || (pag-1)==29){
+            pagSection++;
+            setPagSection();
+            pagIndex=1;
+            sectionChange=true;
+        }
+        
+        if(!sectionChange){
+            document.getElementById("p"+(pagIndex)).style = "text-decoration: underline"; //Subraya pag actual
+            document.getElementById("p"+(pagIndex-1)).style = "text-decoration: none"; //Quita subrayado de pag previamente seleccionada. 
+        }
+        else{
+            document.getElementById("p1").style = "text-decoration: underline"; 
+            document.getElementById("p10").style = "text-decoration: none";  
+            sectionChange=false;
+        }
+        
+        
+        document.getElementById("actPage").innerHTML= "Página "+(pag+1)+"/38";
+        fillTable();
+    }
+    
+    function setPagSection(){
+        var first;
+        var last;
+        switch(pagSection){
+            case 1:
+                first = 1;
+                last = 10;
+                break;
+            case 2:
+                first = 11;
+                last = 10;
+                break;
+            case 3:
+                first = 21;
+                last = 10;
+                break;
+            case 4:
+                first = 31;
+                last = 8;
+                document.getElementById("p9").innerHTML = "";
+                document.getElementById("p10").innerHTML = "";
+                break;
+        }
+        var j= first;
+        for(var i=1; i<=last; i++){
+            document.getElementById("p"+(i)).innerHTML = j;
+            j++;
+        }
+    }
+    
+    function selectPage(selPage){
+        var page = document.getElementById("p"+selPage).innerHTML;
+        
+        for(var i=1; i<=10; i++){
+            document.getElementById("p"+(i)).style = "text-decoration: none";
+        }
+        document.getElementById("p"+(selPage)).style = "text-decoration: underline";
+        
+        if(page>=1 && page<=10){
+            pagSection = 1;
+        }
+        else{
+            if(page>=11 && page<=20){
+                pagSection=2;
+            }
+            else{
+                if(page>=21 && page<=30){
+                    pagSection=3;
+                }
+                else{
+                    pagSection=4;
+                }
+            }
+        }
+        setPagSection();
+        pagIndex=selPage;
+        if(page==1){
+            document.getElementById("Prev").style="display:none";
+        }
+        else{
+            if(page==38){
+                document.getElementById("Next").style="display:none";
+                var i;
+                for(i=5; i<25; i++){
+                    document.getElementById("poke"+i).innerHTML="";
+                }
+            }
+            else{
+                document.getElementById("Prev").style="display:inline-block";
+                document.getElementById("Next").style="display:inline-block";
+            }
+        }
+        document.getElementById("actPage").innerHTML= "Página "+(page)+"/38";
+        
+        pag = page-1;
+        pokeIds=pag*24+1; //Llena la tabla con los pokemones indicados.
+        fillTable();
+    }
+    
+//*****************************
+//   SELECCION DE POKEMON
+//*****************************
+    
+    //Obtiene el id del pokemon seleccionado y lo guarda en una "session"
+    // y la envia a la ruta dedicada para la informacion del pokemon.
+    function selectPokemon(row){
+        var id = document.getElementById("pokeId"+row).innerHTML;
+        alert(parseInt(id.substr(4)));
+        
+        //sessionStorage.setItem("pokeId", id);
+        //window.location.href = "pokemonInfo.html";
+    }
+
+</script>
+
+    
+</html>

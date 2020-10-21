@@ -1,0 +1,205 @@
+/* ---------------------------------------------------------------------*/
+/* BASIC SETUP */
+/* ---------------------------------------------------------------------*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    color: #fff;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+#wrapper {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* ---------------------------------------------------------------------*/
+/* HEADER */
+/* ---------------------------------------------------------------------*/
+
+/* HEADING */
+header{
+    background: linear-gradient(0deg, #fff 35%, #7da09a 35%);
+    height: 810px;
+}
+
+.logo-big{
+    width: 30%;
+    display: block;
+    margin: auto;
+    padding-top: 40px;
+}
+
+/* INTRODUCTION TEXT */
+.introText{
+    position: absolute;
+    top: 460px;
+    left: 8%;
+    width: 44%;
+}
+.introText h2{
+    font-family: 'Silom', 'Lato';
+    font-size: 190%;
+    text-transform: uppercase;
+}
+.introText p{
+    color: #000;
+    padding-top: 40px;
+    text-align: left;
+    font-size: 80%;
+    line-height: 1.6;
+}
+
+/* POKEBALL IMG */
+.introImage{
+    position: absolute;
+    left: 60%;
+    top: 250px;
+}
+.introImage img{
+    width: 85%;
+}
+
+
+/* ---------------------------------------------------------------------*/
+/* LISTA POKEMON */
+/* ---------------------------------------------------------------------*/
+
+.lista{
+    margin-top: 100px;
+}
+/* FINDER */
+.buscador{
+    margin-left: 4%;
+    margin-bottom: 20px;
+    color: #7da09a;
+}
+.buscador ion-icon{
+    font-size: 150%;
+    vertical-align:middle;
+}
+
+#finder{
+    margin-left: 0.5%;
+    border: 1px solid #7da09a;
+    border-radius: 200px;
+    height: 40px;
+    width: 20%;
+    text-indent: 10px;
+    font-size: 90%;
+}
+
+/* LIST ELEMENT */
+
+.pokemonBox{
+    width: 20%;
+    float: left;
+    height: auto;
+    margin-left: 4%;
+    margin-bottom: 10px;
+    transition: border 0.3s, background 0.3s;
+}
+.pokemonBox:hover{
+    cursor: pointer;
+    border: solid 1px #7da09a;
+    background-color: rgba(125, 160, 154, 0.2);
+    opacity: 0.8;
+    
+}
+.pokemonBox img{
+    width: 90%;
+    height: auto;
+    display: block;
+    margin-bottom: -15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pokeName{
+    text-align: center;
+    font-family: 'Silom';
+    font-size: 100%;
+    color: #7da09a;
+    border-top: solid 1px #7da09a;
+    padding-top: 10px;
+    text-transform: uppercase;
+    
+}
+.pokeNumber{
+    text-align: center;
+    font-family: 'Lato';
+    color: #000;
+    font-size: 80%;
+    padding-top: 5px;
+}
+
+
+/* PAGINADOR */
+
+.paginador{
+    margin: 60px auto 20px auto;
+    text-align: center;
+}
+.paginador li{
+    display: inline-block;
+    color: #7da09a;
+    margin-left: 10px;
+}
+
+.paginador li:hover{
+    cursor: pointer;
+    border-bottom: solid 2px #7da09a;
+}
+
+#p1{
+    text-decoration: underline;
+}
+#Prev{
+    vertical-align: top;
+    display: none;
+}
+#Next{
+    vertical-align: top;
+}
+
+
+#actPage{
+    color:#7da09a; 
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+
+
+
+/* ---------------------------------------------------------------------*/
+/* FOOTER */
+/* ---------------------------------------------------------------------*/
+footer{
+    background-color: #7da09a;
+    height: 300px;
+}
+
+footer img{
+    margin: 60px auto 30px auto;
+    display: block;
+    height: 80px;
+}
+
+footer p{
+    color: #fff;
+    text-align: center;
+    font-size: 70%;
+    margin-bottom: 10px;
+}
+
