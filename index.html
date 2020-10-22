@@ -429,11 +429,10 @@
     //Obtiene el id del pokemon seleccionado y lo guarda en una "session"
     // y la envia a la ruta dedicada para la informacion del pokemon.
     function selectPokemon(row){
-        var id = document.getElementById("pokeId"+row).innerHTML;
-        alert(parseInt(id.substr(4)));
+        //var id = document.getElementById("poke"+row).innerHTML;
         
         //sessionStorage.setItem("pokeId", id);
-        //window.location.href = "pokemonInfo.html";
+        window.location.href = "pokemonInfo.html";
     }
 
 </script>
