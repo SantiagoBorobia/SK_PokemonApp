@@ -10,22 +10,77 @@
 </head>
 <body onload="getPokemon()">
     <div id="wrapper">
+        
+<!--***************************
+    INFORMACION DEL POKEMON 
+    *************************** -->
         <header>
             <div class="row heading">
-                <img class="logo-big" src="Images/PokemonLogo.png">
+                <img class="logo-small" src="Images/PokemonLogo.png">
             </div>
-            <div class="row intro">
-                <div class="introText">
-                    <h2>SK Frontend Challenge</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euis- mod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea com- modo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+            
+            <div class="row info">
+                <div class="pokeImage">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png">
                 </div>
-                <div class="introImage">
-                    <img src="Images/Pokeball.png">
+                <div class="pokeInfo">
+                    <h2 id="pokeName">PIKACHU</h2>
+                    <p id="pokeId">No. 025</p>
+                    
+                    <p class="infoLabel">Habilidades</p>
+                    <ul id="pokeAbilities">
+                        <li>Static</li>
+                        <li>Lightning-rod</li>
+                    </ul>
+                    <hr/>
+                    
+                    <p class="infoLabel">Experiencia base</p>
+                    <ul id="baseExperience">
+                        <li>112 XP</li>
+                    </ul>
+                    <hr/>
+                    
+                    <p class="infoLabel" id="peso">Peso</p>
+                    <ul id="weight">
+                        <li>6.0 kg</li>
+                    </ul>
+                    <p class="infoLabel" id="altura">Altura</p>
+                    <ul id="height">
+                        <li>0.4 m</li>
+                    </ul>
+                    <hr id="pesoLine"/>
+                    <hr id="alturaLine"/>
+                    
+                    <p class="infoLabel">Estadísticas</p>
+                    <ul id="stats">
+                        <li id="hp">HP:<p>35</li>
+                        <li id="attack">Ataque:<p>55</p></li>
+                        <li id="defense">Defensa:<p>40</p></li>
+                        <li id="speed">Velocidad:<p>90</p></li>
+                        <br>
+                        <li id="special-attack">Ataque Especial:<p>50</p></li>
+                        <li id="special-defense">Defensa Especial:<p>50</p></li>
+                    </ul>
+                    <hr/>
+                    
+                    <p class="infoLabel">Tipo</p>
+                    <ul id="type">
+                        <li>Electric</li>
+                    </ul>
+                    <hr/>
+                    
+                </div>
+                
+                <div class="goBack">
+                    <ion-icon name="chevron-back-outline" ></ion-icon><a href="index.html">Regresar</a>
                 </div>
             </div>
+            
         </header>
-    
         
+ <!--***************************
+            FOOTER
+    *************************** -->   
         <footer>
             <div class="row">
                 <img src="Images/Pokeball-Icon.png">
@@ -55,7 +110,7 @@
                 getPokemonData(pokemon);
             })
         })
-        document.getElementById("pokeId").innerHTML = "pokemon numero:"+id;
+        //document.getElementById("pokeId").innerHTML = "pokemon numero:"+id;
         
     }
     
@@ -100,6 +155,7 @@
         })
         
     }
+    
     
 </script>
     
