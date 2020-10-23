@@ -2,7 +2,7 @@
 @media only screen and (max-width: 1200px){
     
     .pokeInfo h2{
-        font-size: 280%;
+        font-size: 250%;
     }
     .statsBox:last-child{
         width: 50%;
@@ -13,7 +13,7 @@
 /* Desde 768px a 950px de ancho:   */
 @media only screen and (max-width: 950px){
     .pokeInfo h2{
-        font-size: 200%;
+        font-size: 190%;
     }
     
     .infoLabel{
@@ -34,11 +34,17 @@
 /* Desde 480px a 768px de ancho:   */
 @media only screen and (max-width: 768px){
     
+    .logo-small{
+        width: 30%;
+        margin-left: 60%;
+    }
+    
     .pokeImage{
         margin-left: 5%;
         width: 60%;
         margin: 0px auto 5px auto;
         float: none;
+        margin-bottom: -5%;
     }
     .pokeInfo{
         width: 80%;
@@ -48,7 +54,7 @@
     }
     
     .pokeInfo h2{
-        font-size: 280%;
+        font-size: 270%;
     }
     #pokeId{
         font-size: 150%;
@@ -73,9 +79,83 @@
     
 }
 
-/* Desde 0px a 480px de ancho:   */
+/* Desde 320px a 480px de ancho:   */
 @media only screen and (max-width: 480px){
     
+    .goBack{
+        top: 230px;
+        left: 10%;
+        font-size: 100%;
+    }
+    
+    .logo-small{
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pokeInfo h2{
+        font-size: 150%;
+    }
+    #pokeId{
+        font-size: 100%;
+    }
+    
+    .pokeImage{
+        margin-bottom: -20%;
+    }
+    
+    .infoLabel{
+        font-size: 75%;
+    }
+    .pokeInfo li{
+        font-size: 55%;
+    }
+    .weightBox:last-child{
+        margin-left: 16%;
+    }
+}
+
+/* Desde 0px a 480px de ancho:   */
+@media only screen and (max-width: 320px){
+    
+    #pokeId{
+        margin-bottom: 40px;
+    }
+    .heading{
+        margin-bottom: 0;
+    }
+    .goBack{
+        top: 180px;
+        left: 10%;
+        font-size: 100%;
+    }
+    .pokeInfo h2{
+        font-size: 130%;
+    }
+    #pokeId{
+        font-size: 90%;
+    }
+    
+    .pokeImage{
+        margin-bottom: -50%;
+    }
+    
+    .infoLabel{
+        font-size: 60%;
+    }
+    .pokeInfo li{
+        font-size: 50%;
+    }
+    .weightBox:last-child{
+        margin-left: 14%;
+    }
+    
+    .statsBox{
+        width: 100%;
+    }
+    .statsBox:last-child{
+        width: 100%;
+    }
 }
 
 

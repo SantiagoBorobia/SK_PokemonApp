@@ -102,11 +102,75 @@
         width: 40%;
         margin-left: 6%;
     }
+    
+    .paginador a{
+        font-size: 80%;
+    }
+    #actPage{
+        font-size: 90%;
+    }
 }
 
-/* Desde 0px a 480px de ancho:   */
+/* Desde 320px a 480px de ancho:   */
 @media only screen and (max-width: 480px){
+    .logo-big{
+        width: 38%;
+    }
+    .introImage img{
+        width: 75%;
+        height: auto;
+    }
+    .introImage{
+        top: 150px;
+        margin-left: -8%;
+    }
+    .introText h2{
+    font-size: 160%;
+    }
+    .introText{
+        top: 430px;
+    }
+    .introText p{
+        font-size: 60%;
+    }
     
+    .paginador a{
+        font-size: 70%;
+    }
+    #actPage{
+        font-size: 80%;
+    }
+}
+
+/* Desde 0px a 320px de ancho:   */
+@media only screen and (max-width: 320px){
+    
+    header{
+        height: 780px;
+    }
+    .introText h2{
+        font-size: 150%;
+    }
+    .introText{
+        top: 420px;
+    }
+    .introText p{
+        font-size: 55%;
+    }
+    
+    #finder{
+        width: 50%;
+        font-size: 60%;
+        height: 20px;
+        margin-bottom: 10px;
+    }
+    .buscador ion-icon{
+        font-size: 100%;
+    }
+    .buscador .btn {
+        font-size: 60%;
+    }
+
 }
 
 
