@@ -30,8 +30,6 @@ body{
 /* HEADING */
 header{
     background: linear-gradient(0deg, #fff 35%, #7da09a 35%);
-    height: 900px;
-    margin-bottom: 50px;
 }
 .heading{
     margin-bottom: 30px;
@@ -51,6 +49,7 @@ header{
     margin-left: 5%;
     width: 40%;
     float: left;
+    margin-top: 55px;
 }
 .pokeImage img{
     height: 600px;
@@ -68,9 +67,7 @@ header{
     float: left;
     margin-top: 20px;
     margin-left: 5%;
-    height: 754px;
-    padding-top: 50px;
-    padding-left: 30px;
+    padding: 50px 0 50px 30px;
 }
 
 /* POKEMON NAME */
@@ -93,8 +90,12 @@ header{
     font-weight: bold;
     margin-top: 30px;
 }
-.infoLabel:first-child{
+.firstTag{
     margin-top: 0;
+}
+
+.infoLabel ion-icon{
+    margin-right: 10px;
 }
 
 hr {
@@ -108,7 +109,7 @@ hr {
 
 .pokeInfo li{
     display: inline-block;
-    margin-left: 8%;
+    margin-left: 7%;
     margin-top: 20px;
     font-size: 80%;
 }
@@ -116,47 +117,34 @@ hr {
     margin-left: 0;
 }
 
+
 /* POKEMON WEIGHT-HEIGHT */
-#pesoLine{
+.weightBox{
     width: 40%;
+    float: left;
+}
+.weightBox:last-child{
+    margin-left: 17%;
 }
 
-#peso, #weight{
-    display: inline-block;
-    float: left;
-}
-#weight li{
-    display: block;
-    margin-top: 65px;
-    margin-left: -48px;
-}
-#altura{
-    float: left;
-    margin-left: 46%;
-}
-#height li{
-    display: block;
-    margin-top: 65px;
-    margin-left: 55%;
-}
-#alturaLine{
-    width: 40%;
-    margin-left: 55%;
-    margin-top: -1px;
-}
 
 /* STATS */
 #stats p{
     display: inline-block;
+    padding-left: 5px;
 }
 #stats li{
     font-weight: bold;
+    display: block;
+    margin-left: 0;
 }
 #stats li p{
     font-weight: normal;
 }
-#special-attack, #hp{
-    margin-left: 0%;
+
+.statsBox{
+    width: 40%;
+    float: left;
 }
 
 
@@ -166,7 +154,7 @@ hr {
 .goBack{
     position: absolute;
     color: #000;
-    top: 800px;
+    top: 850px;
     left: 5%;
     font-size: 120%;
     color: #d9770f;
