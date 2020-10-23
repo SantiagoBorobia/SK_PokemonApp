@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="Grid.css">
     <link rel="stylesheet" type="text/css" href="style-index.css">
+    <link rel="stylesheet" type="text/css" href="querries-index.css">
 
 	<title>Soluciones Kuali Front-end Challenge</title>
 </head>
-<body onload="fillTable()">
+<body onload="getAllPokemons()">
     <div id="wrapper">
         <header>
             <div class="row heading">
@@ -17,7 +18,12 @@
             <div class="row intro">
                 <div class="introText">
                     <h2>SK Frontend Challenge</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euis- mod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea com- modo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                    <p>¡Bienvenido a esta aplicación pokémon! <br> 
+                        A continuación se muestra un listado de todos los pokémon, los cuales se obtuvieron a través de la "PokéAPI". Para ver la información detallada de algún pokémon en particular, simplemente haz click en él y la aplicación te enviará a la página correspondiente.<br>
+                        Explora líbremente el listado, utilizando el paginador al final del mismo o buscando por nombre o número, y conoce a todos los pokémon.<br>
+                        ¡Gracias por utilizar esta aplicación!
+                        
+                    </p>
                 </div>
                 <div class="introImage">
                     <img src="Images/Pokeball.png">
@@ -28,7 +34,11 @@
         <section class="lista" id="topList">
             <div class="row">
                 <div class="buscador">
-                    <ion-icon name="search-outline"></ion-icon><input id="finder" placeholder="Buscar...">
+                    <ion-icon name="search-outline"></ion-icon><input id="finder" placeholder="Buscar..." onchange="buscarPokemon()">
+                    <button class="btn" onclick="limpiarBusqueda()">Limpiar búsqueda</button>
+                    <br>
+                    <br>
+                    <a class="ordenador" onclick="changeOrder()" id="order">Ordenar lista por nombre (A-Z)</a>
                 </div>
             </div>
             
@@ -190,62 +200,145 @@
     
     var pokeIds = 1; //id del pokemon que aparece primero en la lista.
     var cons = true; //variable para ver si logro realizar el fetch a la pokeApi
+    var names = [];
+    var orderID = true;
+    
+    async function getAllPokemons(){
+        var urlPokes = "https://pokeapi.co/api/v2/pokemon?limit=893&offset=0";
+        var pokes = await new Promise(function(resolve, reject) {
+            fetch(urlPokes).then(
+                (response)=> {
+                    response.json().then(
+                        (pokemons)=> {
+                            resolve(pokemons);
+                        }
+                    );  
+                },
+                (error)=> {reject(error);}
+            );
+        });
+        
+        
+        for(var i=0; i<893; i++){
+            names.push(pokes.results[i].name);
+        }
+        names.sort();
+        fillTable();
+    }
+    
+    function changeOrder(){
+        if(orderID==true){
+            document.getElementById("order").innerHTML = "Ordenar lista por ID";
+            orderID=false;
+        }
+        else{
+            document.getElementById("order").innerHTML = "Ordenar lista por nombre (A-Z)";
+            orderID=true;
+        }
+        
+        pokeIds=1;
+        fillTable();
+    }
     
 	async function fillTable(){
-        var poke = pokeIds;
         var row = 1;
         cons = true;
-    
-        while(cons && row<=24 && poke<894){
-            consultPokemon(poke, row);
-            row = row + 1;
-            poke = poke+1;
+        var poke = pokeIds;
+        
+        if(orderID){
+            while(cons && row<=24 && poke<894){
+                consultPokemon(poke, row);
+                row = row + 1;
+                poke = poke+1;
+            }
+            pokeIds=poke;
         }
-        pokeIds=poke;
+        else{
+            while(cons && row<=24 && poke<894){
+                consultPokemon(names[poke-1], row);
+                row = row + 1;
+                poke = poke+1;
+            }
+            pokeIds=poke;
+        }
+        
 	}
+    
+    async function buscarPokemon(){
+        var pokemon = document.getElementById("finder").value;
+        
+        if(pokemon != ""){
+            for(var i=1; i<25; i++){
+                document.getElementById("poke"+i).innerHTML="";
+            }
+            consultPokemon(pokemon.toLowerCase(),1);
+        }
+    }
+    
+    function limpiarBusqueda(){
+        document.getElementById("finder").value = "";
+        pokeIds=1;
+        fillTable();
+    }
     
     async function consultPokemon(id, row){
         var urlPoke = "https://pokeapi.co/api/v2/pokemon/"+id;
         var poke = await new Promise(function(resolve, reject) {
             fetch(urlPoke).then(
                 (response)=> {
-                    response.json().then(
-                        (pokemon)=> {
-                            resolve(pokemon);
-                        }
-                    );
+                    if(response.ok){
+                        response.json().then(
+                            (pokemon)=> {
+                                resolve(pokemon);
+                            }
+                        );  
+                    }
+                    else{
+                        resolve(null);
+                    }
+                    
                 },
                 (error)=> {reject(error);}
             );
         });
-        
+                
         createPokemon(poke, row);
     }
     
     async function createPokemon(pokemon, row){
-        var pokemonNumber = pokemon.id;
-        var pokemonId;
-        if(Math.trunc(pokemonNumber/100)==0){
-            if(Math.trunc(pokemonNumber/10)==0){
-                pokemonId="00"+pokemonNumber;
+        
+        if(pokemon != null){
+            var pokemonNumber = pokemon.id;
+            var pokemonId;
+            if(Math.trunc(pokemonNumber/100)==0){
+                if(Math.trunc(pokemonNumber/10)==0){
+                    pokemonId="00"+pokemonNumber;
+                }
+                else{
+                    pokemonId="0"+pokemonNumber;
+                }
             }
             else{
-                pokemonId="0"+pokemonNumber;
+                pokemonId=pokemonNumber;
             }
+            var strHTML =   "<div class='row'>"+
+                                "<img id='pokeImg"+row+"' src='"+pokemon.sprites.front_default+"'>"+
+                            "</div>"+
+                            "<div class='row'>"+
+                                "<p id='pokeName"+row+"' class='pokeName'>"+pokemon.name+"</p>"+
+                            "</div>"+
+                            "<div class='row'>"+
+                                "<p id='pokeId"+row+"' class='pokeNumber'>No. "+pokemonId+"</p>"+
+                            "</div>";
+
+            
         }
         else{
-            pokemonId=pokemonNumber;
+            var strHTML = "<div class='row'>"+
+                                "<p id='pokeName"+row+"' class='pokeName'>El pokémon buscado no existe</p>"+
+                            "</div>";
         }
-        var strHTML =   "<div class='row'>"+
-                            "<img id='pokeImg"+row+"' src='"+pokemon.sprites.front_default+"'>"+
-                        "</div>"+
-                        "<div class='row'>"+
-                            "<p id='pokeName"+row+"' class='pokeName'>"+pokemon.name+"</p>"+
-                        "</div>"+
-                        "<div class='row'>"+
-                            "<p id='pokeId"+row+"' class='pokeNumber'>No. "+pokemonId+"</p>"+
-                        "</div>";
-                        
+        
         var strRow = "poke"+row;
         document.getElementById(strRow).innerHTML = strHTML;
     }
@@ -424,6 +517,8 @@
         sessionStorage.setItem("pokeId", id);
         window.location.href = "pokemonInfo.html";
     }
+    
+    
 
 </script>
 

@@ -1,0 +1,111 @@
+/* Desde 950px a 1200px de ancho:  */
+@media only screen and (max-width: 1200px){
+    
+    .pokeInfo h2{
+        font-size: 280%;
+    }
+    .statsBox:last-child{
+        width: 50%;
+    }
+    
+}
+
+/* Desde 768px a 950px de ancho:   */
+@media only screen and (max-width: 950px){
+    .pokeInfo h2{
+        font-size: 200%;
+    }
+    
+    .infoLabel{
+        font-size: 70%;
+    }
+    .pokeInfo li{
+        font-size: 60%;
+    }
+    
+    .goBack{
+        top: 780px;
+        left: 5%;
+        font-size: 120%;
+    }
+    
+}
+
+/* Desde 480px a 768px de ancho:   */
+@media only screen and (max-width: 768px){
+    
+    .pokeImage{
+        margin-left: 5%;
+        width: 60%;
+        margin: 0px auto 5px auto;
+        float: none;
+    }
+    .pokeInfo{
+        width: 80%;
+        float: none;
+        margin: 5px 10% 0px 10%;
+        padding: 50px 0 50px 30px;
+    }
+    
+    .pokeInfo h2{
+        font-size: 280%;
+    }
+    #pokeId{
+        font-size: 150%;
+    }
+    
+    .infoLabel{
+        font-size: 100%;
+    }
+    .pokeInfo li{
+        font-size: 80%;
+    }
+    
+    .goBack{
+        top: 120px;
+        left: 5%;
+        font-size: 120%;
+        color: #fff;
+    }
+    .goBack a{
+        color: #fff;
+    }
+    
+}
+
+/* Desde 0px a 480px de ancho:   */
+@media only screen and (max-width: 480px){
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,142 @@
+/* Desde 950px a 1200px de ancho:  */
+@media only screen and (max-width: 1200px){
+    
+    .introText{
+        width: 50%;
+    }
+    .introText h2{
+    font-size: 180%;
+    }
+    .introText p{
+        font-size: 70%;
+        width: 90%;
+    }
+    .introImage{
+        top: 300px;
+    }
+    .introImage img{
+        width: 80%;
+    }
+    
+    .buscador{
+        font-size: 80%;
+    }
+    #finder{
+        height: 30px;
+        width: 15%;
+    }
+    
+    .lista{
+        margin-top: 80px;
+    }
+}
+
+/* Desde 768px a 950px de ancho:   */
+@media only screen and (max-width: 950px){
+    
+    .logo-big{
+        width: 40%;
+    }
+    .introText{
+        width: 50%;
+        top: 400px;
+    }
+    .introText h2{
+    font-size: 190%;
+    }
+    .introText p{
+        font-size: 70%;
+        width: 100%;
+    }
+    
+    .buscador{
+        font-size: 70%;
+    }
+    #finder{
+        height: 25px;
+        width: 20%;
+    }
+    
+    .lista{
+        margin-top: 70px;
+    }
+}
+
+/* Desde 480px a 768px de ancho:   */
+@media only screen and (max-width: 768px){
+    
+    .logo-big{
+        width: 35%;
+    }
+    .introImage{
+        left: 35%;
+        top: 170px;
+        margin-left: -4%;
+    }
+    .introImage img{
+        height: 250px;
+        width: auto;
+    }
+    
+    .introText{
+        width: 80%;
+        top: 470px;
+    }
+    .introText h2{
+    font-size: 150%;
+    }
+    
+    .buscador{
+        font-size: 80%;
+        margin-left: 8%;
+    }
+    #finder{
+        width: 30%;
+    }
+    
+    .lista{
+        margin-top: 50px;
+    }
+    
+    .pokemonBox{
+        width: 40%;
+        margin-left: 6%;
+    }
+}
+
+/* Desde 0px a 480px de ancho:   */
+@media only screen and (max-width: 480px){
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -34,7 +34,7 @@ header{
 }
 
 .logo-big{
-    width: 30%;
+    width: 35%;
     display: block;
     margin: auto;
     padding-top: 40px;
@@ -58,6 +58,7 @@ header{
     text-align: left;
     font-size: 80%;
     line-height: 1.6;
+    text-align: justify;
 }
 
 /* POKEBALL IMG */
@@ -98,6 +99,28 @@ header{
     width: 20%;
     text-indent: 10px;
     font-size: 90%;
+}
+.buscador .btn {
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 200px;
+    border: none;
+    color: #fff;
+    background-color: #7da09a;
+    margin-left: 4%;
+}
+.buscador .btn:hover {
+    color: #fff;
+    background-color: #78aca3;
+    cursor: pointer;
+}
+
+.ordenador{
+    margin-left: 1%;
+}
+.ordenador:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 /* LIST ELEMENT */
@@ -182,9 +205,6 @@ header{
     text-align: center;
     margin-bottom: 40px;
 }
-
-
-
 
 
 /* ---------------------------------------------------------------------*/
