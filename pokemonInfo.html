@@ -20,59 +20,74 @@
             </div>
             
             <div class="row info">
-                <div class="pokeImage">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png">
+                <div class="pokeImage" id="pokePhoto">
+                    
                 </div>
                 <div class="pokeInfo">
-                    <h2 id="pokeName">PIKACHU</h2>
-                    <p id="pokeId">No. 025</p>
+                    <div class="row">
+                        <h2 id="pokeName"></h2>
+                        <p id="pokeId"></p>
+                    </div>
                     
-                    <p class="infoLabel">Habilidades</p>
-                    <ul id="pokeAbilities">
-                        <li>Static</li>
-                        <li>Lightning-rod</li>
-                    </ul>
-                    <hr/>
+                    <div class="row">
+                        <p class="infoLabel firstTag"><ion-icon name="bulb"></ion-icon>Habilidades</p>
+                        <ul id="pokeAbilities">
+                        </ul>
+                        <hr/>
+                    </div>
                     
-                    <p class="infoLabel">Experiencia base</p>
-                    <ul id="baseExperience">
-                        <li>112 XP</li>
-                    </ul>
-                    <hr/>
+                    <div class="row">
+                        <p class="infoLabel"><ion-icon name="star"></ion-icon>Experiencia base</p>
+                        <ul id="baseExperience">
+                        </ul>
+                        <hr/>
+                    </div>
                     
-                    <p class="infoLabel" id="peso">Peso</p>
-                    <ul id="weight">
-                        <li>6.0 kg</li>
-                    </ul>
-                    <p class="infoLabel" id="altura">Altura</p>
-                    <ul id="height">
-                        <li>0.4 m</li>
-                    </ul>
-                    <hr id="pesoLine"/>
-                    <hr id="alturaLine"/>
+                    <div class="row">
+                        <div class="weightBox">
+                            <p class="infoLabel" id="peso"><ion-icon name="barbell"></ion-icon>Peso</p>
+                            <ul id="weight">
+                            </ul>
+                            <hr/>
+                        </div>
+                        <div class="weightBox">
+                            <p class="infoLabel" id="altura"><ion-icon name="expand"></ion-icon>Altura</p>
+                            <ul id="height">
+                            </ul>
+                            <hr/>
+                        </div>
+                        
+                    </div>
                     
-                    <p class="infoLabel">Estadísticas</p>
-                    <ul id="stats">
-                        <li id="hp">HP:<p>35</li>
-                        <li id="attack">Ataque:<p>55</p></li>
-                        <li id="defense">Defensa:<p>40</p></li>
-                        <li id="speed">Velocidad:<p>90</p></li>
-                        <br>
-                        <li id="special-attack">Ataque Especial:<p>50</p></li>
-                        <li id="special-defense">Defensa Especial:<p>50</p></li>
-                    </ul>
-                    <hr/>
+                    <div class="row">
+                        <p class="infoLabel"><ion-icon name="stats-chart"></ion-icon>Estadísticas</p>
+                        <ul id="stats">
+                            <div class="statsBox">
+                                <li>HP:<p id="hp"></li>
+                                <li>Ataque:<p id="attack"></p></li>
+                                <li>Defensa:<p id="defense"></p></li>
+                            </div>
+                            <div class="statsBox">
+                                <li>Velocidad:<p id="speed"></p></li>
+                                <li>Ataque Especial:<p id="specialAttack"></p></li>
+                                <li>Defensa Especial:<p id="specialDefense"></p></li>
+                            </div>
+                        </ul>
+                        <hr/>
+                    </div>
                     
-                    <p class="infoLabel">Tipo</p>
-                    <ul id="type">
-                        <li>Electric</li>
-                    </ul>
-                    <hr/>
+                    <div class="row">
+                        <p class="infoLabel"><ion-icon name="color-filter"></ion-icon>Tipo</p>
+                        <ul id="type">
+                        </ul>
+                        <hr/>
+                    </div>
+                    
                     
                 </div>
                 
-                <div class="goBack">
-                    <ion-icon name="chevron-back-outline" ></ion-icon><a href="index.html">Regresar</a>
+                <div class="goBack" onclick="goBack()">
+                    <ion-icon name="chevron-back-outline" ></ion-icon><a>Regresar</a>
                 </div>
             </div>
             
@@ -99,23 +114,31 @@
 </body>
     
 <script>
+    
     //Obtiene el id del pokemon seleccionado desde la session
-    function getPokemon(){
+    async function getPokemon(){
         var id = sessionStorage.getItem("pokeId");
+        var urlPoke = "https://pokeapi.co/api/v2/pokemon/"+id;
         
-        fetch("https://pokeapi.co/api/v2/pokemon/"+id.toString())
-        .then(function(response){
-            response.json()
-            .then(function(pokemon){
-                getPokemonData(pokemon);
-            })
-        })
-        //document.getElementById("pokeId").innerHTML = "pokemon numero:"+id;
+        var poke = await new Promise(function(resolve, reject) {
+            fetch(urlPoke).then(
+                (response)=> {
+                    response.json().then(
+                        (pokemon)=> {
+                            resolve(pokemon);
+                        }
+                    );
+                },
+                (error)=> {reject(error);}
+            );
+        });
         
+        fillPokemonData(poke);
     }
     
-    function getPokemonData(pokemon){
+    async function fillPokemonData(pokemon){
         var name;
+        var id;
         var abilities;
         var baseExperience;
         var height;
@@ -123,37 +146,107 @@
         var stats;
         var types;
         var weight;
+        
         name = pokemon.name;
-        abilities = pokemon.abilities;
+        id = pokemon.id;
         baseExperience = pokemon.base_experience;
         height = pokemon.height;
+        weight = pokemon.weight;
         image = pokemon.sprites.other.dream_world.front_default;
         stats = pokemon.stats;
+        abilities = pokemon.abilities;
         types = pokemon.types;
-        weight = pokemon.weight;
         
+        //Coloca la imagen del pokemon
+        if(image==null){
+            image = pokemon.sprites.other["official-artwork"].front_default;
+            if(image==null)
+                image = pokemon.sprites.front_default;
+        }
+        document.getElementById("pokePhoto").innerHTML = "<img src='"+image+"'>";
         
-        // Manejo de objetos JSON con mas de 1 dato console.log(stats[0].stat.name);
-        // Length de objeto JSON console.log(Object.keys(abilities).length);
-        //Para height (en metros) y weight (en kg) dividir entre 10.
+        //Llenado de datos, buscando la traduccion en español:
+        var cantTypes = Object.keys(types).length;
+        var strTypes = "";
+        for(var i=0; i<cantTypes; i++){
+            var oneType = await getTypes(types[i].type.url);
+            strTypes += "<li>"+oneType+"</li>";
+        }
+        document.getElementById("type").innerHTML = strTypes;
         
-        /*Para español:
-        abilities = names[5]
-        stats = todos son iguales => traducir hard coded
-        types = names[4]
-        */
+        var cantAbilities = Object.keys(abilities).length;
+        var strAbilities = "";
+        for(var i=0; i<cantAbilities; i++){
+            var oneAbility = await getAbilities(abilities[i].ability.url);
+            strAbilities += "<li>"+oneAbility+"</li>";
+        }
+        document.getElementById("pokeAbilities").innerHTML = strAbilities;
+        
+        //Llenado de datos que no necesitan traduccion:
+        document.getElementById("pokeName").innerHTML = name;
+        
+        var strId = "No. ";
+        if(Math.trunc(id/100)==0){
+            if(Math.trunc(id/10)==0){
+                strId+="00"+id;
+            }
+            else{
+                strId+="0"+id;
+            }
+        }
+        else{
+            strId+=id;
+        }
+        document.getElementById("pokeId").innerHTML = strId;
+        
+        document.getElementById("baseExperience").innerHTML = "<li>"+baseExperience+" XP</li>";
+        
+        document.getElementById("weight").innerHTML = "<li>"+(weight/10).toFixed(1)+" Kg</li>";
+        document.getElementById("height").innerHTML = "<li>"+(height/10).toFixed(2)+" m</li>";
+        
+        document.getElementById("hp").innerHTML = stats[0].base_stat;
+        document.getElementById("attack").innerHTML = stats[1].base_stat;
+        document.getElementById("defense").innerHTML = stats[2].base_stat;
+        document.getElementById("specialAttack").innerHTML = stats[3].base_stat;
+        document.getElementById("specialDefense").innerHTML = stats[4].base_stat;
+        document.getElementById("speed").innerHTML = stats[5].base_stat;
+           
     }
     
-    function getAbility(ability){
-        console.log(abilities[0].ability.url)
-        fetch(abilities[0].ability.url)
-        .then(function(response){
-            response.json()
-            .then(function(ability){
-                console.log(ability.names[5].name)
-            })
-        })
+    //Obtiene los nombres de los tipos traducidos al español
+    function getTypes(url){
+        return new Promise(function(resolve, reject) {
+            fetch(url).then(
+                (response)=> {
+                    response.json().then(
+                        (type)=> {
+                            resolve(type.names[4].name);
+                        }
+                    );
+                },
+                (error)=> {reject(error);}
+            );
+        });
+    }
+    
+    //Obtiene los nombres de las habilidades traducidas al español
+    function getAbilities(url){
+        return new Promise(function(resolve, reject){
+            fetch(url).then(
+                (response)=> {
+                    response.json().then(
+                        (ability)=> {
+                            resolve(ability.names[5].name);
+                        }
+                    );
+                },
+                (error) => {reject(error);}
+            );
+        });
+    }
         
+    function goBack() {
+        window.history.back();
     }
     
     

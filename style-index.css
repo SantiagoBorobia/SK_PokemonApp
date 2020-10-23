@@ -80,6 +80,7 @@ header{
 }
 /* FINDER */
 .buscador{
+    margin-top: 5px;
     margin-left: 4%;
     margin-bottom: 20px;
     color: #7da09a;
@@ -158,6 +159,10 @@ header{
 .paginador li:hover{
     cursor: pointer;
     border-bottom: solid 2px #7da09a;
+}
+.paginador a{
+    text-decoration: none;
+    color: #7da09a;
 }
 
 #p1{

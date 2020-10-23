@@ -8,7 +8,7 @@
 
 	<title>Soluciones Kuali Front-end Challenge</title>
 </head>
-<body>
+<body onload="fillTable()">
     <div id="wrapper">
         <header>
             <div class="row heading">
@@ -25,7 +25,7 @@
             </div>
         </header>
     
-        <section class="lista">
+        <section class="lista" id="topList">
             <div class="row">
                 <div class="buscador">
                     <ion-icon name="search-outline"></ion-icon><input id="finder" placeholder="Buscar...">
@@ -142,18 +142,18 @@
             
             <div class="row">
                 <ul class="paginador">
-                    <li id="Prev"><ion-icon name="chevron-back-outline" onclick="paginadorLeft()"></ion-icon></li>
-                    <li id="p1" onclick="selectPage(1)">1</li>
-                    <li id="p2" onclick="selectPage(2)">2</li>
-                    <li id="p3" onclick="selectPage(3)">3</li>
-                    <li id="p4" onclick="selectPage(4)">4</li>
-                    <li id="p5" onclick="selectPage(5)">5</li>
-                    <li id="p6" onclick="selectPage(6)">6</li>
-                    <li id="p7" onclick="selectPage(7)">7</li>
-                    <li id="p8" onclick="selectPage(8)">8</li>
-                    <li id="p9" onclick="selectPage(9)">9</li>
-                    <li id="p10" onclick="selectPage(10)">10</li>
-                    <li id="Next"><ion-icon name="chevron-forward-outline" onclick="paginadorRight()"></ion-icon></li>
+                    <li id="Prev"><a href="#topList"><ion-icon name="chevron-back-outline" onclick="paginadorLeft()"></ion-icon></a></li>
+                    <li onclick="selectPage(1)"><a id="p1" href="#topList">1</a></li>
+                    <li onclick="selectPage(2)"><a id="p2" href="#topList">2</a></li>
+                    <li onclick="selectPage(3)"><a id="p3" href="#topList">3</a></li>
+                    <li onclick="selectPage(4)"><a id="p4" href="#topList">4</a></li>
+                    <li onclick="selectPage(5)"><a id="p5" href="#topList">5</a></li>
+                    <li onclick="selectPage(6)"><a id="p6" href="#topList">6</a></li>
+                    <li onclick="selectPage(7)"><a id="p7" href="#topList">7</a></li>
+                    <li onclick="selectPage(8)"><a id="p8" href="#topList">8</a></li>
+                    <li onclick="selectPage(9)"><a id="p9" href="#topList">9</a></li>
+                    <li onclick="selectPage(10)"><a id="p10" href="#topList">10</a></li>
+                    <li id="Next"><a href="#topList"><ion-icon name="chevron-forward-outline" onclick="paginadorRight()"></ion-icon></a></li>
                 </ul>
             </div>
             <div class="row">
@@ -191,7 +191,7 @@
     var pokeIds = 1; //id del pokemon que aparece primero en la lista.
     var cons = true; //variable para ver si logro realizar el fetch a la pokeApi
     
-	function fillTable(){
+	async function fillTable(){
         var poke = pokeIds;
         var row = 1;
         cons = true;
@@ -204,28 +204,25 @@
         pokeIds=poke;
 	}
     
-    function consultPokemon(id, row){
-        fetch("https://pokeapi.co/api/v2/pokemon/"+id)
-            .then(function(response){
-                if(response.ok){
-                    response.json()
-                    .then(function(pokemon){
-                        createPokemon(pokemon, row)
-                    })
-                }
-                else{
-                    cons =  false;
-                    //console.log("No more pokemons");
-                    
-                }
-            })
-            .catch((error) => {
-                    //console.log(error);
-                    cons =  false;
-                })
+    async function consultPokemon(id, row){
+        var urlPoke = "https://pokeapi.co/api/v2/pokemon/"+id;
+        var poke = await new Promise(function(resolve, reject) {
+            fetch(urlPoke).then(
+                (response)=> {
+                    response.json().then(
+                        (pokemon)=> {
+                            resolve(pokemon);
+                        }
+                    );
+                },
+                (error)=> {reject(error);}
+            );
+        });
+        
+        createPokemon(poke, row);
     }
     
-    function createPokemon(pokemon, row){
+    async function createPokemon(pokemon, row){
         var pokemonNumber = pokemon.id;
         var pokemonId;
         if(Math.trunc(pokemonNumber/100)==0){
@@ -252,9 +249,6 @@
         var strRow = "poke"+row;
         document.getElementById(strRow).innerHTML = strHTML;
     }
-    
-    
-    fillTable(); //Llena la tabla cuando carga la pagina. Pokemones 1-24 (Orden por Id)
     
 //*****************************
 //   FUNCIONALIDAD PAGINADOR
@@ -294,14 +288,10 @@
             sectionChange=false;
         }
         
-        
-        
         document.getElementById("actPage").innerHTML = "Página "+(pag+1)+"/38"; //Coloca el numero de pagina actual.
         
         pokeIds=pag*24+1; //Llena la tabla con los pokemones indicados.
         fillTable();
-        
-        
     }
     
     function paginadorRight(){
@@ -429,9 +419,9 @@
     //Obtiene el id del pokemon seleccionado y lo guarda en una "session"
     // y la envia a la ruta dedicada para la informacion del pokemon.
     function selectPokemon(row){
-        //var id = document.getElementById("poke"+row).innerHTML;
-        
-        //sessionStorage.setItem("pokeId", id);
+        var id = document.getElementById("pokeId"+row).innerHTML;
+        id = parseInt(id.substring(4));
+        sessionStorage.setItem("pokeId", id);
         window.location.href = "pokemonInfo.html";
     }
 
