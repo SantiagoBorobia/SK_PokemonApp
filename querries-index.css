@@ -140,6 +140,13 @@
     #actPage{
         font-size: 80%;
     }
+    
+    .pokeName{
+        font-size: 65%;
+    }
+    .pokeNumber{
+        font-size: 58%;
+    }
 }
 
 /* Desde 0px a 320px de ancho:   */
@@ -169,6 +176,13 @@
     }
     .buscador .btn {
         font-size: 60%;
+    }
+    
+    .pokeName{
+        font-size: 55%;
+    }
+    .pokeNumber{
+        font-size: 48%;
     }
 
 }

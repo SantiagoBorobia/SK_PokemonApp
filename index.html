@@ -237,7 +237,11 @@
         }
         
         pokeIds=1;
-        fillTable();
+        pag = 0; 
+        pagIndex = 1; 
+        pagSection = 1; 
+        setPagSection();
+        selectPage(1);
     }
     
 	async function fillTable(){
